@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>BOOKIT!</title>
+<link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+<link rel="stylesheet" href="/main.css">
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">BOOK IT</h1>
+    <p>
+        <font size="5" face="arial" color="red">
+        <b> About Us </b>
+        </font>
+    </p>
+    <p style="text-align: left">
+        <font size="3" face="verdana" color="red">
+            Hello there! Welcome to Bookit! this is a startup Company founded by four college Students Abhi Arhaam Aeraf and Fahad. 
+            This is the fastest ticket booking website on the planet. So start your journey with us today and hopefully we build long relationship.
+           <i><b> Please check out the latest events Here!!! </b></i>
+            
+        </font>
+        </p>
+    
+    <h2 style="text-align: left"> Events: </h2>
+    {% if V_ID|length < 1 %}
+    <h4 style="text-align: center">There are no concerts</h4>
+    {% else %}
+    <h4 style="text-align: center">Search for your concert.</h4>
+    <table>
+        <tr>
+          <th>Venue</th>
+          <th>Date</th>
+          <th>Artist/s</th>
+          <th> BOOK </th>
+        </tr>
+        {% for V in V_ID %}
+            <tr>
+                <td>{{ V.Ven_Name }}</td>
+                <td>{{ V.Ven_Date }}</td>
+                <td>{{ V.Artist_Name }}</td>
+                <td><a href="/book/{{V.id}}">book</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <p>
+        <font size="5" face="arial" color="red">
+           <B> JOIN US TODAY </b>
+        </font>
+    </p>
+    <p style="text-align: left">
+        <font size="3" face="verdana" color="blue">
+            Want to have concerts at your place!! Join today.
+           <i><b>Please click the button below!!! </b></i>
+            
+        </font>
+        </p>
+    <div class="form">
+        <form action="/Ven_update" method="POST">
+            <input type="submit" value="Join"> 
+        </form>  
+    </div>
+    <div class="col-sm-6 hidden-sm hidden-xs">
+        <img id="front-splash" src="{{ url_for('static',filename='Photos/images.jpg') }}" alt="Front Photo of Musical Band" />
+        <img id="front-splash" src="{{ url_for('static',filename='Photos/download.jpg') }}" alt="Front Photo of Musical Band" />
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>BOOKIT/Join</title>
+<link rel="icon" type="image/x-icon" href="static/images/icons8-globe-africa-94.png">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">JOIN</h1>
+
+    <div class="form">
+        <form action="/Post_ven" method="POST">
+          <h3>Venue Name : <input type="text" name="Ven_Name" id="Ven_Name"> </h3>
+          <h3>Artist Name : <input type="text" name="Artist_Name" id="Artist_Name"> </h3>
+          <h3>Write a short description about the event :  <input type="text" name="Ven_descrip" id="Ven_descrip">  </h3>
+          <h3>Venue date : <input type="date" name="Ven_Date" id="Ven_Date"> </h3>
+          <h3>Seats Available : <input type="Integer" name="Seats_Avail" id="Seats_Avail"> </h3>
+         <h3> <label for="Types">Choose how many types of seats: (maximun is 4) </label> 
+           <select name="types" id="types">
+           <option value=1>1</option>
+           <option value=2>2</option>
+           <option value=3>3</option>
+           <option value=3>4</option>
+
+          </select> </h3>
+          <h3> <label for= "half"> Do you want to only use 50 % of the seats </label>
+            <select name="percent" id="percent">
+            <option value ="Yes"> Yes </option>
+            <option value="NO"> NO </option>
+          </select> </h3>
+          <h3>Seat 1 name : <input type="text" name="Type1_Name" id="Type1_Name"> Seat 1 price <input type="Number" name="Type1_Price" id="Type1_Price"> Number of seats <input type="Integer" name="Type1_Seats" id="Type1_Seats"> </h3>
+          <h3>Seat 2 name : <input type="text" name="Type2_Name" id="Type2_Name"> Seat 2 price <input type="Number" name="Type2_Price" id="Type2_Price"> Number of seats <input type="Integer" name="Type2_Seats" id="Type2_Seats"></h3>
+          <h3>Seat 3 name : <input type="text" name="Type3_Name" id="Type3_Name"> Seat 3 price <input type="Number" name="Type3_Price" id="Type3_Price"> Number of seats <input type="Integer" name="Type3_Seats" id="Type3_Seats"></h3>
+          <h3>Seat 4 name : <input type="text" name="Type4_Name" id="Type4_Name"> Seat 4 price <input type="Number" name="Type4_Price" id="Type4_Price"> Number of seats <input type="Integer" name="Type4_Seats" id="Type4_Seats"> </h3>
+          <h3>Your intial account balance : <input type="Number" name="Balance" id="Balance">
+            <input type="submit" value="SUBMIT">
+
+
+        </form>
+    </div>
+</div>
+{% endblock %}
