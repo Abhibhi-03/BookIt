@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Bookit!</title>
+{% endblock %}
+{% block body %}
+
+<div class="content">
+    <h1 style="text-align: center">Book</h1>
+    <h2> Event : {{task.Ven_Name}} </h2> 
+    <h2> About the Event : </h2>
+    <h3 style= "text-align: center"> {{task.Ven_descrip}}
+    <h3> Artist: {{task.Artist_Name}} </h3>
+    <h3> Date of event: {{task.Ven_Date}}
+    <h3> Seats Available: {{task.Seats_Avail}}</h3>  
+    <h3> Types of Seats : </h3>
+    <table>
+        <tr>
+          <th>Seat Name</th>
+          <th>Price</th>
+          <th>Number Available</th>
+        </tr>
+        <tr>
+            <td>{{ task.Type1_Name }}</td>
+            <td>{{  task.Type1_Price }}</td>
+            <td>{{ task.Type1_Seats }}</td>
+        </tr>
+        <tr>
+            <td>{{ task.Type2_Name }}</td>
+            <td>{{  task.Type2_Price }}</td>
+            <td>{{ task.Type2_Seats }}</td>
+        </tr>
+        <tr>
+            <td>{{ task.Type3_Name }}</td>
+            <td>{{  task.Type3_Price }}</td>
+            <td>{{ task.Type3_Seats }}</td>
+        </tr>
+        <tr>
+            <td>{{ task.Type4_Name }}</td>
+            <td>{{  task.Type4_Price }}</td>
+            <td>{{ task.Type4_Seats }}</td>
+        </tr>
+    </table>
+
+
+
+    <div class="form">
+        <form action="/Final_Confirmation/{{task.id}}" method="POST">
+         <h3> Name: <input type="text" name="Name" id="Name"> </h3>  
+         <h3> Number: +1<input type="Integer" name="Number" id="Number"> </h3>  
+         <h3> <label for= "Book">Which type of seat you want?</label>
+            <select name="type" id="type">
+            <option value = {{task.Type1_Name}}> {{task.Type1_Name}} </option>
+            <option value = {{task.Type2_Name}}> {{task.Type2_Name}} </option>
+            <option value = {{task.Type3_Name}}> {{task.Type3_Name}} </option>
+            <option value = {{task.Type4_Name}}> {{task.Type4_Name}} </option>
+            </select> </h3>
+         <h3> <label for= "Client_Type">Which type of Customer are you?</label>
+             <select name="Client_Type" id="Client_Type">
+             <option value = 'Consumer'> Consumer </option>
+             <option value = 'Reseller'> Reseller </option>
+             <option value = 'WholeSale'> WholeSale dealer</option>
+              </select> </h3>
+
+         <h3> How many seats?<input type="Integer" name="Number_Seats" id="Number_Seats"> </h3>  
+        
+            <input type="submit" value="Book">
+        </form>
+    </div>    
+    </div>
+{% endblock %}
